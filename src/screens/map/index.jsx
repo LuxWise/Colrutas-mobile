@@ -1,53 +1,92 @@
-import { StyleSheet, View, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  BackHandler,
+} from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useEffect } from "react";
 import * as Location from "expo-location";
 import markerred from "../../assets/markred.png";
+import TopMenu from "../../containers/TopMenu";
 
-const Map = () => {
+const Map = ({ navigation }) => {
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
+    };
+  }, []);
+
+  const handleBackButton = () => {
+    navigation.replace("Home");
+    return true;
+  };
+
   const [origin, setOrigin] = React.useState();
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 250);
+
+    const fetchData = async () => {
+      try {
+        let { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== "granted") {
+          setErrorMsg("Permission to access location was denied");
+          return;
+        }
+
+        let location = await Location.getCurrentPositionAsync({});
+        const current = {
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        };
+        setLoading(false);
+
+        setOrigin(current);
+      } catch (err) {
+        console.error("un error en cargar la ubicaion");
+      } finally {
+        setLoading(false);
       }
-
-      let location = await Location.getCurrentPositionAsync({});
-      const current = {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      };
-
-      setOrigin(current);
-    })();
+    };
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TopMenu />
       <View style={styles.textContainer}>
         <Text style={styles.textHeader}>Mapa</Text>
       </View>
       <View style={styles.mapConatiner}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 4.653881,
-            longitude: -74.103262,
-            latitudeDelta: 0.2,
-            longitudeDelta: 0.2,
-          }}
-        >
-          <Marker
-            coordinate={origin}
-            title={"Usted esta aqui"}
-            image={markerred}
-          />
-        </MapView>
+        {loading ? (
+          <View>
+            <Text> Cargando...</Text>
+          </View>
+        ) : (
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: 4.653881,
+              longitude: -74.103262,
+              latitudeDelta: 0.2,
+              longitudeDelta: 0.2,
+            }}
+          >
+            <Marker
+              coordinate={origin}
+              title={"Usted esta aqui"}
+              image={markerred}
+            />
+          </MapView>
+        )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -57,12 +96,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     gap: 15,
+
+    paddingVertical: 20,
+
     backgroundColor: "#f5f9fc",
   },
   textHeader: {
-    color: "#00A081",
+    color: "#0ea5e9",
   },
   textContainer: {
     alignItems: "center",
@@ -70,7 +111,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 25,
     borderWidth: 2,
-    borderColor: "#00A081",
+    borderColor: "#0ea5e9",
     borderRadius: 10,
   },
   mapConatiner: {

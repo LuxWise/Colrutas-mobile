@@ -4,12 +4,14 @@ import {
   View,
   ScrollView,
   BackHandler,
+  SafeAreaView,
 } from "react-native";
 import React, { useEffect } from "react";
 import CustomReturn from "../../components/customReturn";
 import ItemsList from "../../components/ItemsList";
 import user1 from "../../assets/user1.png";
 import user2 from "../../assets/user2.png";
+import TopMenu from "../../containers/TopMenu";
 
 const ListaRuta = ({ navigation }) => {
   useEffect(() => {
@@ -30,7 +32,8 @@ const ListaRuta = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TopMenu />
       <StatusBar
         barStyle="light-content"
         hidden={false}
@@ -38,7 +41,7 @@ const ListaRuta = ({ navigation }) => {
       />
       <CustomReturn icon="clipboard" onPress={redirict} text="Lista de rutas" />
       <ScrollView>
-        <View style={{ padding: 20 }}>
+        <View style={{ width: "100%", padding: 20 }}>
           <ItemsList
             img={user1}
             text="Emanuel Gonzalez"
@@ -77,7 +80,7 @@ const ListaRuta = ({ navigation }) => {
           />
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -87,5 +90,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    paddingVertical: 20,
   },
 });

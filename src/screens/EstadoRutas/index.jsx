@@ -4,10 +4,13 @@ import {
   View,
   StatusBar,
   BackHandler,
+  SafeAreaView,
 } from "react-native";
 import React, { useEffect } from "react";
 import CustomReturn from "../../components/customReturn";
 import ItemsList from "../../components/ItemsList";
+import ruta from "../../assets/ruta.png";
+import TopMenu from "../../containers/TopMenu";
 
 const EstadoRutas = ({ navigation }) => {
   useEffect(() => {
@@ -28,7 +31,8 @@ const EstadoRutas = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TopMenu />
       <StatusBar
         barStyle="light-content"
         hidden={false}
@@ -38,18 +42,12 @@ const EstadoRutas = ({ navigation }) => {
 
       <ScrollView>
         <View style={{ padding: 20 }}>
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
+          <ItemsList img={ruta} text="Ruta 161" text2="tal" text3="donde sea" />
+          <ItemsList img={ruta} text="Ruta 262" text2="tal" text3="donde sea" />
+          <ItemsList img={ruta} text="Ruta 392" text2="tal" text3="donde sea" />
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -59,5 +57,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    paddingVertical: 20,
   },
 });

@@ -1,10 +1,12 @@
 import React from "react";
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View, SafeAreaView } from "react-native";
 import ItemsHome from "../../components/ItemsHome";
+import TopMenu from "../../containers/TopMenu";
 
 const Dashboard = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TopMenu />
       <StatusBar
         barStyle="light-content"
         hidden={false}
@@ -34,7 +36,7 @@ const Dashboard = ({ navigation }) => {
         text="Estado de rutas"
         text2="Consulta de rutas programadas"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -44,13 +46,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    paddingVertical: 40,
-    paddingHorizontal: 15,
     backgroundColor: "#f5f9fc",
+    paddingVertical: 20,
   },
   textContainer: {
     width: "85%",
     marginBottom: 10,
+    paddingHorizontal: 15,
   },
   header: {
     fontWeight: "bold",
