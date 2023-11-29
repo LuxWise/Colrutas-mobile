@@ -1,16 +1,15 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import ruta from "../../assets/ruta.png";
 import React from "react";
 
-const ItemsList = ({ icon, text, text2, text3, navigation, direction }) => {
+const ItemsList = ({ img, text, text2, text3 }) => {
   return (
     <Pressable style={styles.container}>
       <View style={styles.imgContainer}>
-        <Image source={ruta} style={styles.logo} />
+        <Image source={img} style={styles.logo} />
         <Text style={styles.text}>{text}</Text>
       </View>
       <View style={styles.textContainer}>
-        <Text>Origen: {text2}</Text>
+        <Text>Acudiente: {text2}</Text>
         <Text>Destino: {text3}</Text>
       </View>
     </Pressable>

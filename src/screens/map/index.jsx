@@ -2,12 +2,10 @@ import { StyleSheet, View, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useEffect } from "react";
 import * as Location from "expo-location";
+import markerred from "../../assets/markred.png";
 
 const Map = () => {
-  const [origin, setOrigin] = React.useState({
-    latitude: 4.634497,
-    longitude: -74.068481,
-  });
+  const [origin, setOrigin] = React.useState();
 
   useEffect(() => {
     (async () => {
@@ -36,13 +34,17 @@ const Map = () => {
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: origin.latitude,
-            longitude: origin.longitude,
-            latitudeDelta: 0.09,
-            longitudeDelta: 0.04,
+            latitude: 4.653881,
+            longitude: -74.103262,
+            latitudeDelta: 0.2,
+            longitudeDelta: 0.2,
           }}
         >
-          <Marker coordinate={origin} title={"Usted esta aqui"} />
+          <Marker
+            coordinate={origin}
+            title={"Usted esta aqui"}
+            image={markerred}
+          />
         </MapView>
       </View>
     </View>

@@ -8,6 +8,8 @@ import {
 import React, { useEffect } from "react";
 import CustomReturn from "../../components/customReturn";
 import ItemsList from "../../components/ItemsList";
+import user1 from "../../assets/user1.png";
+import user2 from "../../assets/user2.png";
 
 const ListaRuta = ({ navigation }) => {
   useEffect(() => {
@@ -37,15 +39,42 @@ const ListaRuta = ({ navigation }) => {
       <CustomReturn icon="clipboard" onPress={redirict} text="Lista de rutas" />
       <ScrollView>
         <View style={{ padding: 20 }}>
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 161" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 262" text2="tal" text3="donde sea" />
-          <ItemsList text="Ruta 392" text2="tal" text3="donde sea" />
+          <ItemsList
+            img={user1}
+            text="Emanuel Gonzalez"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
+          <ItemsList
+            img={user1}
+            text="David Alvarez"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
+          <ItemsList
+            img={user2}
+            text="Sofia Lopez"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
+          <ItemsList
+            img={user2}
+            text="Emilia Corredor"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
+          <ItemsList
+            img={user1}
+            text="Felipe Muñoz"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
+          <ItemsList
+            img={user1}
+            text="Miguel Rincon"
+            text2="Colegio Privado"
+            text3="donde sea"
+          />
         </View>
       </ScrollView>
     </View>
