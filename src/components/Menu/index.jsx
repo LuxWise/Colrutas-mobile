@@ -1,4 +1,12 @@
-import { StyleSheet, Text, Modal, View, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Modal,
+  View,
+  Image,
+  Pressable,
+  SafeAreaView,
+} from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import profile from "../../assets/ruta.png";
 import React from "react";
@@ -17,7 +25,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
       animationType="fade"
       style={{ justifyContent: "space-between" }}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View>
           <Icon
             onPress={() => setIsMenuOpen(!isMenuOpen)}
@@ -35,7 +43,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
           <ItemsMenu icon="brush" name="Tema" />
           <ItemsMenu icon="bell" name="Notficaciones" />
         </View>
-      </View>
+      </SafeAreaView>
       <Pressable onPress={logout} style={styles.containerLogOut}>
         <Text style={styles.textLogOut}>Cerrar sesion</Text>
       </Pressable>
@@ -50,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     maxHeight: "100%",
     backgroundColor: "#f5f9fc",
-    padding: 20,
+    margin: 20,
   },
   containerItem: {
     flexDirection: "row",
