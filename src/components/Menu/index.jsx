@@ -22,11 +22,11 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
     <Modal
       visible={isMenuOpen}
       transparent={true}
-      animationType="slide"
+      animationType="fade"
       style={{ justifyContent: "space-between" }}
     >
       <SafeAreaView style={styles.container}>
-        <View>
+        <View style={{ marginLeft: 20 }}>
           <Icon
             onPress={() => setIsMenuOpen(!isMenuOpen)}
             name="cross"
@@ -38,7 +38,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
           <Image source={profile} style={styles.profile} />
           <Text style={styles.profileText}>Ruta 106</Text>
         </View>
-        <View>
+        <View style={{ marginLeft: 20 }}>
           <ItemsMenu icon="user" name="Perfil" />
           <ItemsMenu icon="brush" name="Tema" />
           <ItemsMenu icon="bell" name="Notficaciones" />
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     flex: 1,
     maxHeight: "100%",
     backgroundColor: "#f5f9fc",
-    padding: 20,
   },
   containerItem: {
     flexDirection: "row",
