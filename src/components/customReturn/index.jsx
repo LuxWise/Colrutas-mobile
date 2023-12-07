@@ -1,9 +1,9 @@
-import React from "react";
-import Icon from "react-native-vector-icons/Feather";
-import { Icon as Ruturn } from "react-native-vector-icons/Feather";
-import { Text, StyleSheet, Pressable, View } from "react-native";
+import React from 'react';
+import Icon from 'react-native-vector-icons/Feather';
+import {Icon as Ruturn} from 'react-native-vector-icons/Feather';
+import {Text, StyleSheet, Pressable, View} from 'react-native';
 
-const CustomReturn = ({ onPress, text, icon }) => {
+const CustomReturn = ({onPress, text, icon}) => {
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <Icon name="arrow-left" size={30} fontWeight="bold" color="#0ea5e9" />
@@ -18,25 +18,25 @@ const CustomReturn = ({ onPress, text, icon }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 15,
-    alignItems: "center",
+    alignItems: 'center',
 
-    width: "100%",
+    width: '100%',
     maxHeight: 60,
     padding: 15,
   },
   box: {
     width: 40,
     height: 40,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
 
     borderWidth: 3,
     borderRadius: 10,
-    borderColor: "#f0f5ff",
+    borderColor: '#f0f5ff',
 
-    shadowColor: "#000000",
+    shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 0,
@@ -45,10 +45,11 @@ const styles = StyleSheet.create({
     shadowRadius: 5.62,
     elevation: 6,
 
-    backgroundColor: "#0ea5e9",
+    backgroundColor: '#0ea5e9',
   },
   text: {
-    fontWeight: "bold",
+    color: '#080808',
+    fontWeight: 'bold',
     fontSize: 20,
   },
 });

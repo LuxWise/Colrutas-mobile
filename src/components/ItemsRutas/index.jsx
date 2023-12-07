@@ -1,8 +1,8 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import UserDetail from '../usedDetail';
+import RutaDetail from '../RutaDetail';
 
-const ItemsList = ({img, text, acudientes, text3}) => {
+const ItemsRutas = ({img, text, recogida, destino}) => {
   const [isDetailOpen, setIsDetailOpen] = React.useState(false);
 
   return (
@@ -14,20 +14,20 @@ const ItemsList = ({img, text, acudientes, text3}) => {
         <Text style={styles.text}>{text}</Text>
       </View>
       <View style={styles.textContainer}>
-        <Text style={{color: '#080808'}}>Acudiente: {acudientes}</Text>
-        <Text style={{color: '#080808'}}>Destino: {text3}</Text>
+        <Text style={{color: '#080808'}}>Recogida: {recogida}</Text>
+        <Text style={{color: '#080808'}}>Destino: {destino}</Text>
       </View>
-      <UserDetail
+      <RutaDetail
         isDetailOpen={isDetailOpen}
         setIsDetailOpen={setIsDetailOpen}
         text={text}
-        acudientes={acudientes}
+        recogida={recogida}
       />
     </Pressable>
   );
 };
 
-export default ItemsList;
+export default ItemsRutas;
 
 const styles = StyleSheet.create({
   container: {

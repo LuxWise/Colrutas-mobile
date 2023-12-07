@@ -1,10 +1,11 @@
 import React from 'react';
-import { Login } from '../screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import ButtomTabs from '../containers/ButtomTabs';
 import Rutas from '../screens/Rutas';
 import ListaRuta from '../screens/ListaRuta';
-import EstadoRutas from '../screens/EstadoRutas';
+import EstadoRutas from '../screens/ListaRutas';
+import Login from '../screens/login';
+import ListaRutas from '../screens/ListaRutas';
 
 const Stack = createStackNavigator();
 
@@ -36,10 +37,14 @@ const Routes = () => {
         component={EstadoRutas}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="ListaRutas"
+        component={ListaRutas}
+        options={{ headerShown: false }}
+      />
+
     </Stack.Navigator>
   );
 };
-
-
 
 export default Routes;

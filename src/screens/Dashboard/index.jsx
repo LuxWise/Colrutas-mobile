@@ -1,12 +1,21 @@
-import React from "react";
-import { StatusBar, StyleSheet, Text, View, SafeAreaView } from "react-native";
-import ItemsHome from "../../components/ItemsHome";
-import TopMenu from "../../containers/TopMenu";
+import React from 'react';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  useColorScheme,
+} from 'react-native';
+import ItemsHome from '../../components/ItemsHome';
+import TopMenu from '../../layout/TopMenu';
 
-const Dashboard = ({ navigation }) => {
+const Dashboard = ({navigation}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <SafeAreaView style={styles.container}>
-      <TopMenu />
+      <TopMenu navigation={navigation} />
       <StatusBar
         barStyle="light-content"
         hidden={false}
@@ -30,7 +39,7 @@ const Dashboard = ({ navigation }) => {
         text2="Consulta de rutas programadas"
       />
       <ItemsHome
-        direction="EstadoRutas"
+        direction="ListaRutas"
         navigation={navigation}
         icon="calendar"
         text="Estado de rutas"
@@ -45,17 +54,18 @@ export default Dashboard;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    backgroundColor: "#f5f9fc",
+    alignItems: 'center',
+    backgroundColor: '#f5f9fc',
     paddingVertical: 20,
   },
   textContainer: {
-    width: "85%",
+    width: '85%',
     marginBottom: 10,
     paddingHorizontal: 15,
   },
   header: {
-    fontWeight: "bold",
+    color: '#080808',
+    fontWeight: 'bold',
     fontSize: 30,
     left: 0,
   },

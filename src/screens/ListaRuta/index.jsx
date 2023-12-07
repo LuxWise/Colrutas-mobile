@@ -5,77 +5,77 @@ import {
   ScrollView,
   BackHandler,
   SafeAreaView,
-} from "react-native";
-import React, { useEffect } from "react";
-import CustomReturn from "../../components/customReturn";
-import ItemsList from "../../components/ItemsList";
-import user1 from "../../assets/user1.png";
-import user2 from "../../assets/user2.png";
-import TopMenu from "../../containers/TopMenu";
+} from 'react-native';
+import React, {useEffect} from 'react';
+import CustomReturn from '../../components/customReturn';
+import ItemsList from '../../components/ItemsList';
+import user1 from '../../assets/user1.png';
+import user2 from '../../assets/user2.png';
+import TopMenu from '../../layout/TopMenu';
 
-const ListaRuta = ({ navigation }) => {
+const ListaRuta = ({navigation}) => {
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
+    BackHandler.addEventListener('hardwareBackPress', handleBackButton);
 
     return () => {
-      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
+      BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
     };
   }, []);
 
   const handleBackButton = () => {
-    navigation.replace("Home");
+    navigation.replace('Home');
     return true;
   };
 
   const redirict = () => {
-    navigation.replace("Home");
+    navigation.replace('Home');
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <TopMenu />
+      <TopMenu navigation={navigation} />
       <StatusBar
         barStyle="light-content"
         hidden={false}
         backgroundColor="#0066CC"
       />
       <CustomReturn icon="clipboard" onPress={redirict} text="Lista de rutas" />
-      <ScrollView>
-        <View style={{ width: "100%", padding: 20 }}>
+      <ScrollView style={{width: '100%'}}>
+        <View style={{padding: 20, alignItems: 'center'}}>
           <ItemsList
             img={user1}
             text="Emanuel Gonzalez"
-            text2="Colegio Privado"
+            acudientes="Fabian Gonzalez"
             text3="donde sea"
           />
           <ItemsList
             img={user1}
             text="David Alvarez"
-            text2="Colegio Privado"
+            acudientes="Felipe Alvarez"
             text3="donde sea"
           />
           <ItemsList
             img={user2}
-            text="Sofia Lopez"
-            text2="Colegio Privado"
+            text="Juan David Lopez"
+            acudientes="Sofia Rincon"
             text3="donde sea"
           />
           <ItemsList
             img={user2}
             text="Emilia Corredor"
-            text2="Colegio Privado"
+            acudientes="Daniela Martinez"
             text3="donde sea"
           />
           <ItemsList
             img={user1}
             text="Felipe Muñoz"
-            text2="Colegio Privado"
+            acudientes="Alejandro Muñoz"
             text3="donde sea"
           />
           <ItemsList
             img={user1}
             text="Miguel Rincon"
-            text2="Colegio Privado"
+            acudientes="Pedro Rincon"
             text3="donde sea"
           />
         </View>
@@ -89,7 +89,7 @@ export default ListaRuta;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     paddingVertical: 20,
   },
 });

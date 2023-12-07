@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import { View, StyleSheet, useWindowDimensions, Image } from "react-native";
-import CustomInput from "../../components/customInput";
-import logo from "../../assets/logo.png";
-import CustomButtom from "../../components/customButtom";
+import React, {useState} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
+import CustomInput from '../../components/customInput';
+import CustomButtom from '../../components/customButtom';
+import logo from '../../assets/logo.png';
 
-const Login = ({ navigation }) => {
-  const [user, setUser] = useState("");
-  const [passwword, setPassword] = useState("");
-  const [seePassword, setSeePassword] = useState("");
-
-  const { height } = useWindowDimensions();
+const Login = ({navigation}) => {
+  const [user, setUser] = useState('');
+  const [passwword, setPassword] = useState('');
 
   const checkUser = text => {
     setUser(text);
@@ -18,22 +15,22 @@ const Login = ({ navigation }) => {
   const checkPasswordValidity = value => {
     const isNonWhiteSpace = /^\S*$/;
     if (!isNonWhiteSpace.test(value)) {
-      return "Password bad";
+      return 'Password bad';
     }
 
     const isContainsLowercase = /^(?=.*[a-z]).*$/;
     if (!isContainsLowercase) {
-      return "Password bad";
+      return 'Password bad';
     }
 
     const isContainsNumber = /^(?=.*[0-9]).*$/;
     if (!isContainsNumber) {
-      return "Password bad";
+      return 'Password bad';
     }
 
     const isValidLength = /^.{8,16}$/;
     if (!isValidLength) {
-      return "Password bad";
+      return 'Password bad';
     }
 
     return null;
@@ -42,7 +39,7 @@ const Login = ({ navigation }) => {
   const handleLogin = () => {
     const checkPassword = checkPasswordValidity(passwword);
     if (!checkPassword) {
-      navigation.replace("Home");
+      navigation.replace('Home');
     } else {
       alert(checkPassword);
     }
@@ -73,16 +70,16 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
+    alignItems: 'center',
+    justifyContent: 'space-around',
     paddingHorizontal: 40,
-    backgroundColor: "#0ea5e9",
+    backgroundColor: '#0ea5e9',
   },
   containerInput: {
-    width: "100%",
+    width: '100%',
   },
   logo: {
-    width: "70%",
+    width: '70%',
     maxWidth: 250,
     maxHeight: 200,
     borderRadius: 25,

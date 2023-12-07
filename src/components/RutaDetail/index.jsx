@@ -2,7 +2,7 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import React from "react";
 
-const UserDetail = ({ isDetailOpen, setIsDetailOpen, text, acudientes }) => {
+const RutaDetail = ({ isDetailOpen, setIsDetailOpen, text, acudientes }) => {
   return (
     <Modal visible={isDetailOpen} transparent={true} animationType="fade">
       <View style={styles.container}>
@@ -19,10 +19,11 @@ const UserDetail = ({ isDetailOpen, setIsDetailOpen, text, acudientes }) => {
             <Text style={styles.nameText}>{text}</Text>
           </View>
           <View style={styles.infoContainer}>
-            <Text style={styles.info}>Acudiente: {acudientes}</Text>
+            <Text style={styles.info}>Conductor: {acudientes}</Text>
+            <Text style={styles.info}>Origen: </Text>
+            <Text style={styles.info}>Placa: </Text>
             <Text style={styles.info}>Destino: </Text>
-            <Text style={styles.info}>Curso: </Text>
-            <Text style={styles.info}>Direccion: </Text>
+            <Text style={styles.info}>Monitor: </Text>
           </View>
         </View>
       </View>
@@ -30,7 +31,7 @@ const UserDetail = ({ isDetailOpen, setIsDetailOpen, text, acudientes }) => {
   );
 };
 
-export default UserDetail;
+export default RutaDetail;
 
 const styles = StyleSheet.create({
   container: {

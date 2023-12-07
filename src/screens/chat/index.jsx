@@ -1,11 +1,13 @@
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, SafeAreaView} from 'react-native';
 import React, {Component} from 'react';
+import TopMenu from '../../layout/TopMenu';
 
-const Chat = () => {
+const Chat = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TopMenu navigation={navigation} />
       <Text>Chat</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f5f9fc',
+    paddingVertical: 20,
   },
 });
