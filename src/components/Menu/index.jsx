@@ -26,7 +26,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
       style={{ justifyContent: "space-between" }}
     >
       <SafeAreaView style={styles.container}>
-        <View style={{ margin: 20 }}>
+        <View style={{ marginLeft: 20, marginTop: 20 }}>
           <Icon
             onPress={() => setIsMenuOpen(!isMenuOpen)}
             name="cross"
@@ -38,7 +38,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
           <Image source={profile} style={styles.profile} />
           <Text style={styles.profileText}>Ruta 106</Text>
         </View>
-        <View style={{ marginLeft: 20 }}>
+        <View style={{ marginLeft: 40, marginTop: 20 }}>
           <ItemsMenu icon="user" name="Perfil" />
           <ItemsMenu icon="brush" name="Tema" />
           <ItemsMenu icon="bell" name="Notficaciones" />
