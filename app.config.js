@@ -1,4 +1,6 @@
-{
+import 'dotenv/config'
+
+export default {
   "expo": {
     "name": "maps-base",
     "slug": "maps-base",
@@ -13,6 +15,15 @@
     },
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsVersion": "11.0.0",
+          "RNMapboxMapsDownloadToken": process.env.MAPBOX_KEY
+        }
+      ]
     ],
     "ios": {
       "supportsTablet": true

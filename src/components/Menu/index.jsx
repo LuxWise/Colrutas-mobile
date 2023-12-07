@@ -22,7 +22,7 @@ const Menu = ({ setIsMenuOpen, isMenuOpen, navigation }) => {
     <Modal
       visible={isMenuOpen}
       transparent={true}
-      animationType="fade"
+      animationType="slide"
       style={{ justifyContent: "space-between" }}
     >
       <SafeAreaView style={styles.container}>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     maxHeight: "100%",
     backgroundColor: "#f5f9fc",
-    margin: 20,
+    padding: 20,
   },
   containerItem: {
     flexDirection: "row",
